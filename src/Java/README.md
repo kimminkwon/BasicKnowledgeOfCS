@@ -27,3 +27,27 @@
     * Young 영역: 새롭게 생성한 객체의 공간, 대부분 금방 접근 불가능 상태가 되어 사라진다(`Minor GC`).
     * Old 영역: `Young 영역`에서 접근 불가능이 되지 않은 객체의 공간, 여기서는 삭제가 잘 일어나지 않음, 일어날 경우 `Major GC`라고 한다.
     * Old 영역에서의 Young 영역 참조: 추가 Table을 두고, Old 영역에서 Young 영역을 참조 시에 이를 Table에 저장한다. 이를 통해 Old 영역의 GC 대상 식별을 효율적으로 할 수 있다.
+  
+## 4. Collection
+* Collection: `List`, `Map`, `Set`, `Stack`, `Queue` 등의 인터페이스가 존재하는 표준화된 클래스
+* 장점 1) 객체의 수가 동적 2) 객체를 보관하기 위한 공간을 미리 정하지 않으므로 공간 효율성 좋음
+* List: `ArrayList`, `LinkedList` 등의 리스트 구조
+* Map: `HashMap` 등의 Key-value 쌍 구조
+* Set: `HashSet` 등의 중복을 허용하지 않는 구조
+* Stack, Queue: LIFO 구조와 FIFO 구조의 리스트
+  
+## 5. Annotation
+* 등장배경: 기존의 자바 웹 App은 설정을 `외부 XML 파일`을 통해 작업 -> 매번 많은 설정을 필요로하고 가독성이 떨어짐
+* Annotation의 장점 1) 읽기 좋은 코드 2) 클래스 주입 등의 사용성 극대화
+
+## 6. Generic
+* 등장배경: `Object`형 리스트가 있다고 할 때, 해당 리스트에 데이터를 꺼낼 때 형변환을 해야한다. 이는 잠재적 오류가 많음
+* Generic의 기본 사용: Type을 `T`로 대체해 사용한다. 이 경우 데이터를 가져올 때 Type이 일치한다면 형 변환이 필요 없다.
+* Generic을 통한 Type 한정: Type을 `T extends Number`로 지정한다면, Number의 서브 클래스만이 입력 가능해진다.
+  
+## 7. 접근 제한자
+* public: 어떤 클래스라도 접근 가능
+* protected: 같은 패키지 내 + 해당 클래스를 상속받은 외부 패키지의 클래스 접근 가능
+* default: 같은 패키지 내에서만 접근 가능
+* private: 해당 클래스에서만 접근 가능
+
