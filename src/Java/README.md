@@ -51,3 +51,52 @@
 * default: 같은 패키지 내에서만 접근 가능
 * private: 해당 클래스에서만 접근 가능
 
+## 8. Java 8의 새로운 특징
+* 람다 표현식
+    1. 인터페이스를 직접 클래스로 구현하는 경우    
+        ``` java
+        interface TestInterface {
+            public int plus(int a, int b);
+        }
+        
+        class TestImpl implements TestInterface {
+            @override
+            public int plus(int a, int b) { return a + b; }
+        }
+        ```
+    2. 인터페이스를 생성하며 메소드를 구현해 주입하는 경우    
+        ``` java
+        interface TestInterface {
+            public int plus(int a, int b);
+        }
+       
+        public static void main(String[] args) {
+            TestInterface t = new TestInterface() {
+                @override
+                public int plus(int a, int b) { return a + b; }
+            }
+        }
+        ```
+    3. 람다 표현식을 사용하여 2를 더 간결화한다.    
+        ``` java
+        interface TestInterface {
+            public int plus(int a, int b);
+        }
+              
+        public static void main(String[] args) {
+            TestInterface t = (a, b) -> { return a + b; };
+        }
+        ```
+    * 람다의 장점
+        * 함수형 프로그래밍을 쉽게한다.
+        * 코드의 가독성 상승
+        * 코드가 간결해진다.
+* 메소드 레퍼런스: 특정 람다식을 더 축약한다.
+    * 람다를 통한 표현: int x와 int y를 비교하는 Integer.Compare 함수가 있다고 하자. 어떤 리스트의 값을 순회하며 비교하다면 다음과 같다.
+    ```java
+    list.forEach(x -> x.compare(y));
+    ```
+    * 메소드 레퍼런스를 통한 표현: 더 편하게 표현할 수 있다.
+    ```java
+    list.forEach(Integer::compare);
+    ```    
